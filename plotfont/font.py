@@ -10,7 +10,7 @@ from .fonttable import HP1345A
 
 class Font(object):
 
-    """ Class which uses a mono-space character table to convert a given
+    """ Class which uses a monospaced character table to convert a given
     string into a list of line strokes, which can be used to print the
     string on a plotter device. """
 
