@@ -1,4 +1,4 @@
-# PlotApp
+# PlotFont
 
 Python 3 package providing a line font based on the famous HP1345A font for plotting applications.
 
