@@ -1,0 +1,28 @@
+# pyproject.toml
+[build-system]
+requires = [
+    "setuptools",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = [
+    "plotfont",
+]
+
+[project]
+name = "PlotFont"
+version = "0.9.0"
+authors = [
+    { name = "Reinhard Caspary", email = "reinhard.caspary@phoenixd.uni-hannover.de"},
+]
+description = "Python 3 package providing a line font for plotting applications."
+readme = "README.md"
+dependencies = [
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
