@@ -73,7 +73,8 @@ class Font(object):
 
         # Apply mirror
         if args["mirrorx"] and args["mirrory"]:
-            lines = self.flop(lines, 2)
+            lines = self._mirror(lines, "xy")
+            #lines = self.flop(lines, 2)
         elif args["mirrorx"]:
             lines = self._mirror(lines, "x")
         elif args["mirrory"]:
@@ -202,19 +203,18 @@ class Font(object):
         """ Mirror transform of the given lists of line strokes with
         respect to the x or y axis. """
 
-        axis = axis.lower()
-        if axis not in ("x", "y"):
+        axis = "".join(sorted(axis.lower()))
+        if axis not in ("x", "y", "xy"):
             raise RuntimeError("Unknown mirror axis '%s'!" % axis)
 
-        horz = axis == "x"
-        newlines = []
-        for line in lines:
-            if horz:
-                line = [(-x, y) for x, y in line]
-            else:
-                line = [(x, -y) for x, y in line]
-            newlines.append(line)
-        return newlines
+        if axis == "x":
+            lines = [[(-x, y) for x, y in line] for line in lines]
+        elif axis == "y":
+            lines = [[(x, -y) for x, y in line] for line in lines]
+        else:
+            lines = [[(-x, -y) for x, y in line] for line in lines]
+            
+        return lines
 
 
     def _shift(self, lines, dx, dy):
